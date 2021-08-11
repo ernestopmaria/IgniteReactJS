@@ -3,35 +3,31 @@ import styled from 'styled-components'
 
 export  const Container = styled.header`
 background: var(--blue);
-height: 13.25rem;
+
 
 `
 export  const Content = styled.div`
+max-width: 1120px;
+margin: 0 auto;
+padding: 2rem 1rem 12rem;
 display: flex;
-justify-content: space-between;
 align-items: center;
+justify-content: space-between;
 
-padding: 3rem;
-
-button{
-    
+button{    
     background: var(--blue-light);
-    outline: 0;
-   width: 10rem;
-    border: none;
+    border: 0;
     color:var(--shape);
-    font-size:1rem;
-    padding: .8rem;
-    border-radius:5px;
+    font-size: 1rem;
+    padding: 0 2rem;
+    height: 3rem;
+    border-radius:0.25rem;
     :hover{
-        opacity: 0.7;
-        transition:.1s
+        filter: brightness(0.9);
+        transition: filter 0.2s;
     }
     
     
-}
-img{
-    width: 10rem;  
 }
 
 `
