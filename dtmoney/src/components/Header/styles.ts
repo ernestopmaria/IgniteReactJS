@@ -22,6 +22,7 @@ button{
     padding: 0 2rem;
     height: 3rem;
     border-radius:0.25rem;
+    box-shadow: 5px 5px 2px #aaaaaa;
     :hover{
         filter: brightness(0.9);
         transition: filter 0.2s;
