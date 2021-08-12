@@ -1,31 +1,51 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-max-width:1120px;
+margin-top: 4rem;
 
 
-header{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-    color: var(--text-body);
-    margin-top: 2rem;
-}
-body{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    background:var(--shape);
-    gap: 2rem;
-    margin-top: .8rem;
-    padding: .7rem;
-    border-radius: 0.25rem;
-    box-shadow: 4px 4px 5px #aaaaaa;
-    p{
-        color:var(--text-title);
+
+table {
+    width: 100%;
+    border-spacing: 0 0.5rem;
+    
+    
+    th{
+        color: var(--text-body);
+        font-weight: 400;
+        padding:1rem 2rem ;
+        text-align: left;
+        line-height:1.5rem ;
+    }
+    td{
+        padding: 1rem 2rem;
+        border:0;
+        background:var(--shape);
+        
+        color:var(--text-body);
+        
+        
+        &:first-child{
+            color:var(  --text-title)
+        }
+        &.deposit{
+            color:var(--green)
+        }
+        &.withdraw{
+            color:var(--red)
+        }
         
     }
+    tr{
+        box-shadow: 10px 10px 5px #aaaaaa; 
+        border-radius: 0.25rem; 
+    }
+    
+  
 
 }
+
+
 
 
 `;
