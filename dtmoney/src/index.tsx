@@ -17,7 +17,17 @@ createServer({
         category:'Food',
         createdAt: new Date()
 
-      }]
+      },{
+      id:2,
+      title:'Transaction 1',
+      amount: 300,
+      type:'out',
+      category:'Education',
+      createdAt: new Date()
+
+    },
+    
+    ]
     })
   }
 })
