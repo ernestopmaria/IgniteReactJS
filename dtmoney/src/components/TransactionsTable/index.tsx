@@ -1,15 +1,26 @@
-import { useEffect } from "react";
+import { transitions } from "polished";
+import { useEffect, useState } from "react";
 import { api } from "../../services/api";
 import { Container } from "./styles";
 
+interface TransactionProps{
+    id:number,
+    title:string,
+    amount:number,
+    type:string
+    category:string,
+    createdAt:string,
 
+}
 
 
 export function TransactionsTable(){
 
+    const [transactions, setTransactions] = useState<TransactionProps[]>([])
+
     useEffect(()=>{
         api.get('http://localhost:3000/api/transations')        
-        .then(response => console.log(response.data))
+        .then(response => (setTransactions(response.data.transactions)))
     },[])
 
 
@@ -24,27 +35,18 @@ export function TransactionsTable(){
                     <th>Data</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td >Chuteiras</td>
-                        <td className="deposit">100</td>
-                        <td>Desporto</td>
-                        <td>07/05/2015</td>
-                    </tr>
-                    <tr>
-                        <td>Aluguel</td>
-                        <td className="withdraw">100</td>
-                        <td>Casa</td>
-                        <td>07/05/2015</td>
-                    </tr>
-                    <tr>
-                        <td >Chuteiras</td>
-                        <td className="withdraw">100</td>
-                        <td>Desporto</td>
-                        <td>07/05/2015</td>
-                    </tr>
-
+                
+                <tbody >
+                {transactions.map(transaction=>{
+                    return(                    
+                    <tr  key={transaction.id}>
+                        <td >{transaction.title}</td>
+                        <td className={transaction.type}>{transaction.amount}</td>
+                        <td>{transaction.category}</td>
+                        <td>{transaction.createdAt}</td>
+                    </tr>)} )}
                 </tbody>
+               
                 
             </table>
            

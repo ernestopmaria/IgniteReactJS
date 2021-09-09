@@ -1,4 +1,4 @@
-import { darken } from "polished";
+import { darken,transparentize } from "polished";
 import styled  from "styled-components";
 
 
@@ -57,12 +57,26 @@ display: grid;
 grid-template-columns:1fr 1fr;
 gap:0.5rem;
 margin:1rem 0;
+`;
+ 
+interface RadioBoxProps{
+    isActive:boolean
+    activeColor:"green" |"red"
 
-button{
+}
+
+const colors = {
+    green :"#33cc95",
+    red:"#E52E4D"
+}
+export const RadioBox = styled.button<RadioBoxProps>`
+
+
 height: 4rem;
 border-radius:0.25rem;
 border: 1px solid #d7d7d7;
-background: transparent;
+background: ${(props)=>props.isActive?
+ transparentize(0.9 ,colors[props.activeColor]): "transparent"};
 display:flex;
  justify-content: center;
  align-items: center;
@@ -72,6 +86,7 @@ display:flex;
     border-color:${darken(0.1,'#d7d7d7')} ;
  }
 
+ 
 img{
     
      width: 20px;
@@ -84,7 +99,5 @@ img{
      font-size: 1rem;
      color:var(--text-title)
  }
- 
-}
 
-`
+ `;
