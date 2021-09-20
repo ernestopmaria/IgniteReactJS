@@ -4,8 +4,9 @@ import {  Container ,TransactionTypeContainer,RadioBox} from './styles';
 import closeImg from '../assets/close.svg'
 import incomeImg from '../assets/income.svg'
 import outcomeImg from '../assets/outcome.svg'
-import { FormEvent, useState } from 'react';
-import { api } from '../services/api';
+import { FormEvent, useState} from 'react';
+import { useTransactions } from '../hooks/useTransactions';
+
 
 
 interface INewTransactionModalProps{
@@ -15,16 +16,21 @@ onRequestClose:()=>void
 
 
 export function NewTransactionModal({isOpen,onRequestClose}:INewTransactionModalProps){
+    const {createTransaction} = useTransactions()
     const [type, setType ] = useState("deposit");
     const[title, setTitle]=useState('')
-    const[value, setValue]=useState(0)
-    const[categorie, setCategorie]=useState('')
+    const[amount, setAmount]=useState(0)
+    const[category, setCategory]=useState('')
 
-    function handleCreateNewTransaction(event:FormEvent){
+   async function handleCreateNewTransaction(event:FormEvent){
         event.preventDefault()
-        const data={title, value, categorie,type}
+        await createTransaction({title, amount,category ,type})
 
-        api.post("/transations", data)
+        setTitle("");
+        setAmount(0);
+        setCategory('');
+        setType("deposit")
+        onRequestClose();
     };
     
 
@@ -46,7 +52,7 @@ export function NewTransactionModal({isOpen,onRequestClose}:INewTransactionModal
         <Container onSubmit={handleCreateNewTransaction}>  
         <h2>Cadastrar Transação</h2>
         <input placeholder="Titulo" value={title} onChange={event =>setTitle(event.target.value) } />
-        <input type="number" placeholder="Valor" value={value} onChange={event =>setValue(Number(event.target.value)) } />
+        <input type="number" placeholder="Valor" value={amount} onChange={event =>setAmount(Number(event.target.value)) } />
 
         <TransactionTypeContainer>
             <RadioBox type="button" onClick={()=>{setType("deposit")}}
@@ -65,7 +71,7 @@ export function NewTransactionModal({isOpen,onRequestClose}:INewTransactionModal
             </RadioBox>
         </TransactionTypeContainer>
 
-        <input placeholder="Categoria" value={categorie} onChange={event =>setCategorie(event.target.value) } />
+        <input placeholder="Categoria" value={category} onChange={event =>setCategory(event.target.value) } />
         <button type="submit">
         Cadastrar</button>
         </Container>
