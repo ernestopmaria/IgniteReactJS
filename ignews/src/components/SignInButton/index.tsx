@@ -1,5 +1,4 @@
 import {FcGoogle} from 'react-icons/fc'
-import {ImUserCheck} from 'react-icons/im'
 import {FiX} from 'react-icons/fi'
 import styles from './styles.module.scss'
 import {signIn, useSession, signOut}from 'next-auth/client'
@@ -7,8 +6,6 @@ import {signIn, useSession, signOut}from 'next-auth/client'
 
 export function SignInButton(){
     const [session] = useSession();
-    console.log(session)
-
 
     return session? 
         
