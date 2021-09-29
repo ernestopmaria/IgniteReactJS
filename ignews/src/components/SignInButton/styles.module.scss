@@ -25,5 +25,14 @@
         filter:brightness(0.8)
     }
 }
+@media(max-width: 720px){
+    .signInButton img{
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+    }
+        
+      }
 
 

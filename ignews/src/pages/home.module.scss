@@ -8,7 +8,9 @@ align-items: center;
 justify-content: space-between;
 
 img{
-    max-width: 700px;
+    max-width: 600px;
+    max-height: calc(90vh - 6rem);;
+    border-radius: 50%;
 }
 
 }
@@ -27,7 +29,7 @@ img{
         margin-top:2.5rem;
 
         span{
-            color:#6246ea
+            color:#f77737
         }
     }
     p{
@@ -35,7 +37,7 @@ img{
         line-height:2.25rem;
         margin-top: 1.5rem;
         span{
-            color:#6246ea;
+            color:#f77737;
             font-weight: bold;
         }
     }
@@ -43,6 +45,21 @@ img{
     button{
         margin-top: 2.5rem;
     }
+
   
 
 }
+
+@media(max-width: 720px){
+    .contentContainer{
+        margin-top: -160px;
+  
+
+        img{
+            width: 210px;
+            height: 250px;
+            
+        }
+    }
+        
+      }

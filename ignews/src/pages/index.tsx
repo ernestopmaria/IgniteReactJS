@@ -18,19 +18,19 @@ export default function Home({product}:HomeProps) {
    
     <> 
        <Head>
-       <title>Home | immi.news</title>
+       <title>Home | Kid'stories</title>
     </Head>   
     <main className={styles.contentContainer}>
       <section  className={styles.hero}>
         <span>👏 Hey , welcome </span>
-        <h1>News about <span>Immigration</span> around World</h1>
+        <h1>Here you founds <span>Kid's stories </span>to educate your children</h1>
         <p>
-          Get acess to all News <br />
+          Get acess to more 10M+ stories <br />
           <span>for {product.amount}/month</span>
         </p>
         <SubscribeButton priceId={product.priceId}/>
       </section>
-      <img src="/images/person.svg" alt="Immigrant"/>
+      <img src="/images/test.jpg" alt="Immigrant"/>
       
     </main>
     

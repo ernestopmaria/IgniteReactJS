@@ -5,7 +5,25 @@ html,
   box-sizing: border-box;
 }
 :root {
-  --white:#ffffff;
+  --white:#172c66;
+  --gray-100: #e1e1e6;
+  --gray-300:#001858;
+  --gray-800:#29292e;
+  --gray-850:#fc9968;
+  --gray-900: #fef6e4;
+
+  --cyan-500: #61dafb;
+  --yellow-500:#eba417;
+
+  //Secondary Colors
+  --background:#fffffe;
+  --headline:#2b2c34;
+  --paragraph: #2b2c34;
+  --button:#fc9968;
+  --button-text:#fffffe;
+
+  /*
+    --white:#ffffff;
   --gray-100: #e1e1e6;
   --gray-300:#a8a8b3;
   --gray-800:#29292e;
@@ -15,12 +33,8 @@ html,
   --cyan-500: #61dafb;
   --yellow-500:#eba417;
 
-  //Secondary Colors
-  --background:#fffffe;
-  --headline:#2b2c34;
-  --paragraph: #2b2c34;
-  --button:#6246ea;
-  --button-text:#fffffe;
+  
+  */
   
 
 
@@ -30,7 +44,8 @@ html,
   html{
     font-size:93.75%;
     img{
-      max-width: 100%;
+      width: 90%;
+      height: 90%;
       
     }
   }
@@ -38,9 +53,10 @@ html,
 
 @media(max-width: 720px){
   html{
-    font-size:87.5%;
+    font-size:50%;
     img{
-      width: 60%;
+      width: 50%;
+      height: 50%;
       
     }
   

@@ -5,7 +5,7 @@ export function Header(){
     return(
         <header className={styles.headerContainer}>
             <div className={styles.headerContent}>
-                <img src="/images/world.svg" alt="immi.news" className={styles.headerImage}/>
+                <img src="/images/baby.svg" alt="immi.news" className={styles.headerImage}/>
                 <nav>
                     <a href="" className={styles.active}>Home</a>
                     <a href="">Posts</a>
