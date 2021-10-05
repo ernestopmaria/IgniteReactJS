@@ -21,9 +21,8 @@ export const config ={
     }
 }
 
-const relevantEvents = new Set([
-    "checkout.session.completed"
-])
+const relevantEvents = new Set(["checkout.session.completed"])
+
 export default async function(req:NextApiRequest, res:NextApiResponse){
    if(req.method==='POST') {
     const buf = await buffer(req)
@@ -33,13 +32,18 @@ export default async function(req:NextApiRequest, res:NextApiResponse){
 
     try {
         event = stripe.webhooks.constructEvent(buf, secret, process.env.STRIPE_WEBHOOCK_SECRET)
-    } catch (error) {
-        return res.status(400).send(`webhook error : ${error.message}`);
+    } catch (err) {
+        return res.status(400).send(`webhook error : ${err.message}`);
     }
 
-    const type = event.type
+    const {type} = event;
 
-    res.status(200).json({ok:true})
+    if(relevantEvents.has(type)){
+        console.log("evento recebido", event)
+
+    }
+
+    res.json({ok:true})
 }
 else{
     res.setHeader('Allow', "POST")
